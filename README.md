@@ -3,7 +3,7 @@
 Este repositório contém tudo o que você precisa para rodar um **GitHub Actions Runner** em um container Docker baseado no **Ubuntu 20.04**.  
 O container está pré-configurado com várias dependências úteis como Python, Git, SQL Server (sqlcmd), PowerShell e outras bibliotecas.
 
-> ✅ Ideal para quem deseja executar workflows do GitHub Actions em ambiente self-hosted, com fácil deploy via Docker Compose.
+> Ideal para quem deseja executar workflows do GitHub Actions em ambiente self-hosted, com fácil deploy via Docker Compose.
 
 ---
 
@@ -21,7 +21,7 @@ Este projeto monta uma imagem Docker com o agente de execução do GitHub Action
 
 ---
 
-## ⚙️ Pré-requisitos
+## Pré-requisitos
 
 - Docker
 - Docker Compose
