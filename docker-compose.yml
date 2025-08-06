@@ -1,0 +1,19 @@
+services:
+  runner:
+    container_name: runner
+    image: local/github-runner:latest
+    restart: always
+    environment:
+      - PERSONAL_REPOSITORY=user/repo
+      - PERSONAL_TOKEN=TOKEN
+      - RUNNER_NAME=example-name
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.35"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 252M
+    network_mode: "host"
