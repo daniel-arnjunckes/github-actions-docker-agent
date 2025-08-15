@@ -7,6 +7,8 @@ services:
       - PERSONAL_REPOSITORY=user/repo
       - PERSONAL_TOKEN=TOKEN
       - RUNNER_NAME=example-name
+      - SQLSERVER_USER=${SQLSERVER_USER}
+      - SQLSERVER_PWD=${SQLSERVER_PWD}
     deploy:
       replicas: 1
       resources:

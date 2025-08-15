@@ -18,6 +18,7 @@ Este projeto monta uma imagem Docker com o agente de execução do GitHub Action
 - **Dockerfile**: Cria a imagem do runner com todas as dependências instaladas.
 - **start.sh**: Script de inicialização que registra o runner no repositório.
 - **docker-compose.yml**: Facilita o deploy com as variáveis de ambiente necessárias.
+- **.env**: Passa valor de acesso ao sqlserver que o agent irá se conectar
 
 ---
 
@@ -52,7 +53,14 @@ environment:
   - RUNNER_NAME=meu-runner
 ```
 
-3. Suba o serviço com:
+3. Edite o arquivo `.env` e preencha as variáveis de ambiente:
+
+```yaml
+SQLSERVER_USER=username
+SQLSERVER_PWD=password
+```
+
+4. Suba o serviço com:
 
 ```bash
 docker-compose up -d
@@ -74,6 +82,7 @@ E iniciar o container:
 docker run -d \
   --name runner \
   --network host \
+  --env-file .env \
   -e PERSONAL_REPOSITORY=seu-usuario/seu-repositorio \
   -e PERSONAL_TOKEN=ghp_seutokenaqui \
   -e RUNNER_NAME=meu-runner \
