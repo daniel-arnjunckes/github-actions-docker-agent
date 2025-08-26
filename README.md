@@ -1,16 +1,14 @@
 # GitHub Actions Runner em Container (Ubuntu 20.04)
 
-Este repositório contém tudo o que você precisa para rodar um **GitHub Actions Runner** em um container Docker baseado no **Ubuntu 20.04**.  
-O container está pré-configurado com várias dependências úteis como Python, Git, SQL Server (sqlcmd), PowerShell e outras bibliotecas.
-
-> Ideal para quem deseja executar workflows do GitHub Actions em ambiente self-hosted, com fácil deploy via Docker Compose.
+Este runner foi desenvolvido para executar scripts .sql em ambientes SQL Server como parte de workflows CI/CD via GitHub Actions.
 
 ---
 
 ## Como funciona?
 
-Este projeto monta uma imagem Docker com o agente de execução do GitHub Actions, que pode ser usado para rodar seus jobs localmente, em servidores privados ou na nuvem, sem depender dos runners hospedados pelo GitHub.
+O projeto cria uma imagem Docker com o agente do GitHub Actions, configurado especialmente para rodar scripts .sql em servidores SQL Server. O runner pode ser executado localmente, em servidores privados ou na nuvem, permitindo executar jobs sem depender dos runners hospedados pelo GitHub.
 
+Ele suporta a conexão com múltiplos servidores SQL Server (um por vez), desde que utilizem as mesmas credenciais. Para servidores com credenciais diferentes, recomenda-se executar uma instância separada do runner para cada conjunto de credenciais.
 ---
 
 ## Estrutura do Projeto
