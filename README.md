@@ -44,23 +44,20 @@ git clone https://github.com/seu-usuario/github-actions-runner-container.git
 cd github-actions-runner-container
 ```
 
-2. Edite o arquivo `docker-compose.yml` e preencha as variáveis de ambiente:
+2. Edite o arquivo `.env` e preencha as variáveis de ambiente:
 
 ```yaml
-environment:
-  - PERSONAL_REPOSITORY=seu-usuario/seu-repositorio
-  - PERSONAL_TOKEN=ghp_seutokenaqui
-  - RUNNER_NAME=meu-runner
+
+GIT_REPO=usuario/repositorio
+GIT_TOKEN=ghp_token
+
+RUNNER_NAME=nome_do_runner
+
+SQLSERVER_USER=usuario
+SQLSERVER_PWD=senha
 ```
 
-3. Edite o arquivo `.env` e preencha as variáveis de ambiente:
-
-```yaml
-SQLSERVER_USER=username
-SQLSERVER_PWD=password
-```
-
-4. Suba o serviço com:
+3. Suba o serviço com:
 
 ```bash
 docker-compose up -d
@@ -121,5 +118,3 @@ docker rm -f runner
 
 * **Token inválido**: Gere um novo token no GitHub com as permissões corretas.
 * **Runner não aparece no GitHub**: Verifique se o container está rodando corretamente e se o repositório está correto.
-
-

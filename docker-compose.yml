@@ -1,12 +1,14 @@
 services:
   runner:
-    container_name: runner
-    image: local/github-runner:latest
+    build:
+      context: .
+    container_name: ${RUNNER_NAME}
+    image: github-runner:latest
     restart: always
     environment:
-      - PERSONAL_REPOSITORY=user/repo
-      - PERSONAL_TOKEN=TOKEN
-      - RUNNER_NAME=example-name
+      - PERSONAL_REPOSITORY=${GIT_REPO}
+      - PERSONAL_TOKEN=${GIT_TOKEN}
+      - RUNNER_NAME=${RUNNER_NAME}
       - SQLSERVER_USER=${SQLSERVER_USER}
       - SQLSERVER_PWD=${SQLSERVER_PWD}
     deploy:
